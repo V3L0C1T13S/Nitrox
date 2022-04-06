@@ -10,7 +10,16 @@ namespace NitroxModel.Discovery.InstallationFinders
     {
         public string FindGame(IList<string> errors = null)
         {
-            string steamPath = RegistryEx.Read<string>(@"Software\\Valve\\Steam\SteamPath");
+            string steamPath;
+            if (Environment.OSVersion.Platform == PlatformID.Unix) 
+            {
+                steamPath = Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".local/share/Steam");
+            }
+            else 
+            {
+                steamPath = RegistryEx.Read<string>(@"Software\\Valve\\Steam\SteamPath");
+            }
+
             if (string.IsNullOrEmpty(steamPath))
             {
                 errors?.Add("It appears you don't have Steam installed.");
