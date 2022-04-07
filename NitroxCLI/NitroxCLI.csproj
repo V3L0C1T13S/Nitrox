@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NitroxPatcher\NitroxPatcher.csproj" />
     <ProjectReference Include="..\NitroxServer-Subnautica\NitroxServer-Subnautica.csproj" />
+    <ProjectReference Include="..\NitroxModel\NitroxModel.csproj"/>
   </ItemGroup>
 
   <!-- Move assets from Subnautica assets to launcher.
